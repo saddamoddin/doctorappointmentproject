@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Doctor</title>
+    <link rel="stylesheet" href="{% static 'doctor/vendors/mdi/css/materialdesignicons.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'doctor/vendors/flag-icon-css/css/flag-icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'doctor/vendors/css/vendor.bundle.base.css' %}" />
+    <link rel="stylesheet" href="{% static 'doctor/vendors/font-awesome/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'doctor/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'doctor/css/style.css' %}" />
+    <link rel="shortcut icon" href="{% static 'doctor/images/favicon.png' %}" />
+    <link rel="stylesheet" href="{% static 'doctor/css' %}">
+  </head>
+  <body>
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav ">
+          <li class="nav-item nav-profile" style="background-color:rgb(235, 235, 235)">
+           
+            <a href="#" class="nav-link">
+            
+              <div class="nav-profile-image" style="margin-left:20px">
+               
+                <img src="{% static 'doctor/images/4.jpg'%}" alt=""/>
+                
+              
+                
+                <!--change to offline or busy as needed-->
+              </div>
+            </a>
+            <div class="nav-profile-text d-flex flex-column ">
+              <span class="" style="text-align:center;font-family:serif;color:rgb(54, 114, 138);font-size:15px;">Henry Klein</span>
+              <span class="" style="text-align:center;color:rgb(32, 95, 121);font-family:serif;font-size:20px;">Neurologist</span>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'doctor-index' %}">
+              <i class="mdi mdi-home menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-profile' %}">
+              <i class="mdi mdi-account-plus menu-icon"></i>
+              <span class="menu-title">Add Profile Details</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add-appointment-details' %}">
+              <i class="mdi mdi-book-plus menu-icon"></i>
+              <span class="menu-title">Add Appointement Details</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view-appointment-details' %}">
+              <i class="mdi mdi-book-open menu-icon"></i>
+              <span class="menu-title">View Appointement Details</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view-appointments' %}">
+              <i class="mdi mdi-book-search menu-icon"></i>
+              <span class="menu-title">View Appointements</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view-profile' %}">
+              <i class="mdi mdi-account menu-icon"></i>
+              <span class="menu-title">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'view-feedback' %}">
+              <i class="mdi mdi-telegram menu-icon"></i>
+              <span class="menu-title">View Feedback</span>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close mdi mdi-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles light"></div>
+            <div class="tiles dark"></div>
+          </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="{% url 'doctor-index' %}"><i  style="font-size:40px;color:aliceblue" class="mdi mdi-account"></i></a>
+            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+              <i class="mdi mdi-menu"></i>
+            </button>
+           
+            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+              
+              <li class="nav-item nav-profile dropdown border-0">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <img class="nav-profile-img mr-2" alt="" src="{% static 'doctor/images/faces/face1.jpg' %}" />
+                  <span class="profile-name">Henry Klein</span>
+                </a>
+                <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </nav>
+        <div class="main-panel">
+          <div class="content-wrapper pb-0">
+            
+            <div class="page-header flex-wrap">
+              
+              <div>
+                <button type="button" class="btn btn-sm ml-3 btn-success"> Edit Appointment Details </button>
+              </div>
+            </div>
+              <div class="row">
+                
+               
+                
+                
+                
+                <div class="col-12 grid-margin">
+                  <div class="card">
+                    <div class="card-body">
+                      
+                      <form class="form-sample">
+                        <p class="card-description">Personal info</p>
+
+                        <div class="row">
+                         
+                          <div class="col-md-4">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label"> Date</label>
+                              <div class="col-sm-9">
+                                <input type="date" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">From Time</label>
+                              <div class="col-sm-9">
+                                <input type="Time" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">To Time</label>
+                              <div class="col-sm-9">
+                                <input type="time" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn btn-primary">ADD</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+          </div>
+          <footer class="footer">
+            
+          </footer>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'doctor/vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{% static 'doctor/vendors/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'doctor/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.categories.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.fillbetween.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'doctor/vendors/flot/jquery.flot.pie.js' %}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'doctor/js/off-canvas.js' %}"></script>
+    <script src="{% static 'doctor/js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'doctor/js/misc.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{% static 'doctor/js/dashboard.js' %}"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
